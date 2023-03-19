@@ -1,0 +1,17 @@
+.Logo {
+    width: 50px;
+    height: 50px;
+    margin: 40px;
+}
+
+.tilt {
+    padding: 10px 30px;
+    background: linear-gradient(
+        89deg,
+        #FF5EDF 0%,
+        #04C8DE 100%
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

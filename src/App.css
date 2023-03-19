@@ -1,38 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Yeseva+One&display=swap');
+
+* {
+  box-sizing: border-box;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+*::-webkit-scrollbar { display: none }
+html { font-size: 62.5% }
+body {
+  margin: 0;
+  font-size: 1.5em;
+  line-height: 1;
+  font-weight: 400;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
 .App {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.App-header,
+.App-footer {
+  position: absolute;
+  left: 0;
+  width: 100%;
 }
+.App-header { top: 0 }
+.App-footer { bottom: 0 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1, h2, h3, legend {
+  margin: 0;
+  font-family: 'Yeseva One';
+}
+h1 { font-size: 4.0rem }
+h2 { font-size: 3.6rem }
+h3 { font-size: 3.0rem }
+@media (min-width: 550px) {
+  h1 { font-size: 5.0rem }
+  h2 { font-size: 4.2rem }
+  h3 { font-size: 3.6rem }
+}
+p, 
+li, 
+button, 
+input { font-family: 'Josefin Sans' }
+a {
+  text-decoration: none;
+  font-family: 'Josefin Sans';
+}
+span {
+  font-family: 'Josefin Sans';
+  font-size: 100%;
 }

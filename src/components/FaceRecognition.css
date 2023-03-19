@@ -1,0 +1,10 @@
+.Image-container {
+    position: relative;
+    width: 500px;
+    height: auto;
+}
+
+#Image {
+    width: 100%;
+    height: auto;
+}
