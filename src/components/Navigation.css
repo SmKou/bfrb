@@ -1,0 +1,11 @@
+.nav-link {
+    padding: 20px;
+    color: black;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color .15s ease-in;
+    transition: opacity .15s ease-in;
+}
+.nav-link:hover {
+    text-decoration: underline;
+}

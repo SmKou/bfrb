@@ -24,6 +24,7 @@ const initialState = {
   route: 'signin',
   isSignedIn: false,
   user: {
+    code: '',
     name: '',
     email: '',
     entries: '',
@@ -41,6 +42,7 @@ class App extends Component {
 
   randomBg = () => bg_type[Math.floor(Math.random() * bg_type.length)]
   loadUser = (data) => this.setState({ user: {
+    code: data.code,
     name: data.name,
     email: data.email,
     entries: data.entries,
@@ -68,32 +70,18 @@ class App extends Component {
   displayBoxes = (box) => this.setState({ box })
 
   onImageSubmit = () => {
-    this.setState({ imgUrl: this.state.input })
-    const { USER_ID, PAT, APP_ID, MODEL_ID } = {
-      USER_ID: 'clarifai',
-      PAT: '099d95e9d8b548c3ae3fff888c73ffe3',
-      APP_ID: 'main',
-      MODEL_ID: 'face-detection'
-    };
+    this.setState({ imgUrl: this.state.input });
     let url = this.state.input;
-    const requestOptions = {
-      method: 'post',
-      headers: {
-        'Accept': 'application/json',
-        'Authorization': `Key ${PAT}`
-      },
+    fetch('http://localhost:3000/image', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        'user_app_id': {
-          'user_id': USER_ID,
-          'app_id': APP_ID
-        },
-        'inputs': [{ 'data': { 'image': { 'url': url }}}]
+        code: this.state.user.code,
+        url: url
       })
-    };
-
-    fetch(`https://api.clarifai.com/v2/models/${MODEL_ID}/outputs`, requestOptions)
-    .then(res => res.json())
-    .then(res => this.displayBoxes(this.calculateLocations(res.outputs[0].data.regions)))
+    })
+    .then(resp => resp.json())
+    .then()
   }
   
   onRouteChange = (r) => {

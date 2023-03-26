@@ -10,7 +10,6 @@ const FaceRecognition = ({ box, imgUrl }) => {
             <img id='Image' src={imgUrl} alt='upload image with faces' />
             { box?
                 box.map((b, i) => {
-                    console.log(b, i);
                     return (<Box key={`Box-${i}`} boundingBox={b} />);
                 }):
                 console.log(box)
